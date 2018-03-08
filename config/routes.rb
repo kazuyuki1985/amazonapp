@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :tag_product_maps
   resources :products
   resources :tags
