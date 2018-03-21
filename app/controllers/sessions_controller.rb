@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
-  skip_before_filter :require_login, expt: [:destroy]
 
   def new
   end
 
   def create
-    ＠user = login(params[:email], params[:password])
+    @user = login(params[:email], params[:password])
     if @user
+      Rails.logger.debug(@user) 
       redirect_back_or_to(root_path)
     else
       render :new
@@ -14,5 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    logout
+    redirect_to welcome_path
   end
 end
