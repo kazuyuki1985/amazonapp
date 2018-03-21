@@ -1,4 +1,4 @@
-class CreateTagProductMaps < ActiveRecord::Migration[5.1]
+class CreateTagProductMaps < ActiveRecord::Migration[5.0]
   def change
     create_table :tag_product_maps do |t|
       t.references :tag, foreign_key: true
